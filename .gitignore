@@ -1,0 +1,15 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+pytest-cache-files-*/
+logs/
+memory/
+ruvector.db
+ruvector.db.lock
+backups/
+.claude/
+.claude-flow/
+.swarm/

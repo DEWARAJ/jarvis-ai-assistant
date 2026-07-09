@@ -1,0 +1,152 @@
+{
+  "file": {
+    "module": "tools.file_tool",
+    "class": "FileTool",
+    "scope": "project folders only"
+  },
+  "notes": {
+    "module": "tools.notes_tool",
+    "class": "NotesTool",
+    "scope": "notes/"
+  },
+  "task": {
+    "module": "tools.task_tool",
+    "class": "TaskTool",
+    "scope": "memory/tasks.json"
+  },
+  "windows_app": {
+    "module": "tools.windows_app_tool",
+    "class": "WindowsAppTool",
+    "scope": "whitelist launcher"
+  },
+  "business": {
+    "module": "tools.business_tool",
+    "class": "BusinessTool",
+    "scope": "business_knowledge/"
+  },
+  "customer_support": {
+    "module": "tools.customer_support_tool",
+    "class": "CustomerSupportTool",
+    "scope": "draft only"
+  },
+  "ecommerce": {
+    "module": "tools.ecommerce_tool",
+    "class": "EcommerceTool",
+    "scope": "audit & copy"
+  },
+  "trading": {
+    "module": "tools.trading_tool",
+    "class": "TradingTool",
+    "scope": "journal & risk"
+  },
+  "automation": {
+    "module": "tools.automation_tool",
+    "class": "AutomationTool",
+    "scope": "plan only"
+  },
+  "connectors": {
+    "module": "tools.placeholder_connectors",
+    "class": "PlaceholderConnectors",
+    "scope": "disabled until approved"
+  },
+  "file_ops": {
+    "module": "tools.file_ops_tool",
+    "class": "FileOpsTool",
+    "scope": "user folders (preview + confirm)"
+  },
+  "web": {
+    "module": "tools.web_tool",
+    "class": "WebTool",
+    "scope": "read public web pages"
+  },
+  "email": {
+    "module": "tools.email_tool",
+    "class": "EmailTool",
+    "scope": "read-only inbox (never sends)"
+  },
+  "browser": {
+    "module": "tools.browser_control_tool",
+    "class": "BrowserControlTool",
+    "scope": "open sites & search results"
+  },
+  "news": {
+    "module": "tools.news_tool",
+    "class": "NewsTool",
+    "scope": "live news via RSS"
+  },
+  "power": {
+    "module": "tools.power_control",
+    "class": "PowerControlTool",
+    "scope": "power control"
+  },
+  "screen": {
+    "module": "tools.screen_control",
+    "class": "ScreenControlTool",
+    "scope": "screenshots"
+  },
+  "input": {
+    "module": "tools.input_control",
+    "class": "InputControlTool",
+    "scope": "keyboard & mouse"
+  },
+  "browser_root": {
+    "module": "tools.browser_root",
+    "class": "BrowserRoot",
+    "scope": "web execution root"
+  },
+  "volume": {
+    "module": "tools.volume_control",
+    "class": "VolumeControlTool",
+    "scope": "system volume"
+  },
+  "process": {
+    "module": "tools.process_control",
+    "class": "ProcessControlTool",
+    "scope": "close/kill apps"
+  },
+  "network": {
+    "module": "tools.network_control",
+    "class": "NetworkControlTool",
+    "scope": "wifi/bluetooth"
+  },
+  "youtube": {
+    "module": "tools.youtube_tools",
+    "class": "YoutubeTool",
+    "scope": "youtube and media playback"
+  },
+  "system_info": {
+    "module": "tools.system_info_tool",
+    "class": "SystemInfoTool",
+    "scope": "CPU/RAM/disk/battery diagnostics"
+  },
+  "trading_bot": {
+    "module": "tools.trading_bot_tool",
+    "class": "TradingBotTool",
+    "scope": "control the smart-trader bot (signals / backtest / paper)"
+  },
+  "terminal": {
+    "module": "tools.system_command",
+    "class": "SystemCommandTool",
+    "scope": "run shell commands"
+  },
+  "weather": {
+    "module": "tools.weather_tool",
+    "class": "WeatherTool",
+    "scope": "live weather"
+  },
+  "utility": {
+    "module": "tools.utility_tool",
+    "class": "UtilityTool",
+    "scope": "unit conversions, BMI, calories, password gen, math eval, jokes, translate"
+  },
+  "hermes": {
+    "module": "tools.hermes_tool",
+    "class": "HermesTool",
+    "scope": "delegate agentic tasks to the local Hermes Agent"
+  },
+  "firecrawl": {
+    "module": "tools.firecrawl_tool",
+    "class": "FirecrawlTool",
+    "scope": "advanced web scraping, crawling, and data extraction via Firecrawl API"
+  }
+}

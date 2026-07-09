@@ -1,0 +1,248 @@
+
+================================================================================
+PROJECT: EXHAUST-FITTED AIR PURIFYING CELL MEMBRANE SYSTEM (APCMS)
+CODENAME: CAMBRIDGE-1
+VERSION: 0.1 — INITIAL FRAMEWORK
+DATE: 2025
+================================================================================
+
+1. PROJECT OVERVIEW
+-------------------
+Goal: Design a cell membrane-based exhaust aftertreatment device that fits
+directly onto a vehicle exhaust pipe and selectively captures CO2, NOx,
+particulate matter (PM2.5/PM10), hydrocarbons (HC), and carbon monoxide (CO)
+from combustion exhaust gases before they are released into the atmosphere.
+
+Key Innovation: A layered bio-inspired semi-permeable membrane stack integrated
+into a retrofit exhaust collar unit — no engine modification required.
+
+Target Vehicles: Petrol (gasoline), diesel, and hybrid ICE vehicles.
+Fitment: Universal exhaust pipe collar (50mm–120mm diameter range).
+
+
+================================================================================
+2. EXHAUST GAS CHARACTERISATION (Operating Environment)
+========================================================
+
+2.1 Exhaust Gas Composition (Typical ICE — Diesel)
+----------------------------------------------------
+  CO2         :  2% – 12%  by volume
+  H2O (steam) :  2% – 12%  by volume
+  NOx (NO+NO2):  200 – 1500 ppm
+  CO          :  100 – 3000 ppm (higher in petrol)
+  HC          :  50 – 500 ppm
+  PM (soot)   :  10 – 200 mg/m³
+  O2          :  2% – 18%  (excess air)
+  N2          :  ~70%  (balance)
+  SOx         :  <50 ppm (low-sulphur fuel)
+
+2.2 Thermodynamic Parameters
+-----------------------------
+  Exhaust gas temperature at tailpipe exit:
+    Petrol (cold start)  :  100°C – 200°C
+    Petrol (warm, cruise):  300°C – 500°C
+    Diesel (cruise)      :  180°C – 380°C
+    Diesel (DPF outlet)  :  150°C – 250°C
+    Peak (hard accel.)   :  Up to 900°C (pre-cat)
+
+  Exhaust mass flow rate:
+    Small car (1.2L)     :  20 – 60 kg/hr
+    Mid-size (2.0L)      :  40 – 120 kg/hr
+    Heavy diesel (3.0L+) :  80 – 300 kg/hr
+
+  Exhaust volumetric flow:
+    Approx. 0.01 – 0.08 m³/s at tailpipe (varies with RPM/load)
+
+  Exhaust back-pressure tolerance:
+    Safe operational limit: <10 kPa additional back-pressure
+    Critical limit         : >15 kPa risks engine damage / ECU fault codes
+
+  Gas velocity at tailpipe:
+    2 – 20 m/s (idle to high RPM)
+
+  Reynolds Number (exhaust pipe, D=60mm):
+    Re = ρVD/μ ≈ 5,000 – 50,000 → Turbulent regime
+
+
+================================================================================
+3. MEMBRANE SYSTEM ARCHITECTURE
+================================
+
+3.1 Concept — Layered Membrane Stack
+--------------------------------------
+The APCMS uses a multi-layer membrane collar consisting of:
+
+  LAYER 1 — PRE-FILTER (Mechanical)
+    Material : Ceramic fibre mesh or sintered metal foam
+    Function : Removes coarse PM, soot, and condensed hydrocarbons
+    Temp rating: up to 900°C
+    Pore size  : 10–50 μm
+
+  LAYER 2 — OXIDATION CATALYST LAYER
+    Material : Platinum/Palladium washcoat on alumina substrate
+    Function : Oxidises CO → CO2, HC → CO2 + H2O
+    Operating temp: 200°C – 600°C
+    Note     : This pre-conditions the gas for membrane selectivity
+
+  LAYER 3 — NOx SELECTIVE MEMBRANE
+    Material : Mixed ionic-electronic conducting (MIEC) perovskite membrane
+               e.g. La0.6Sr0.4Co0.2Fe0.8O3-δ (LSCF) or BaZrO3-based
+    Function : Selective permeation of NO and NO2 via oxygen vacancy diffusion
+    Mechanism: NOx adsorbs on surface → dissociates → N2 released, O²⁻ conducted
+    Operating temp: 400°C – 800°C (self-sustaining with exhaust heat)
+    Selectivity: NOx/N2 selectivity factor ~50–200
+
+  LAYER 4 — CO2 SELECTIVE MEMBRANE
+    Material : Molten carbonate membrane (Li2CO3/Na2CO3 eutectic in porous
+               ceramic support — alumina or YSZ)
+    Mechanism: CO2 + O²⁻ → CO3²⁻ (permeates through melt) → CO2 released
+               on permeate side for capture/storage
+    Operating temp: 500°C – 700°C
+    CO2/N2 selectivity: 100 – 1000+ (literature values)
+    CO2 flux         : 1–10 mL/cm²/min at operating temperature
+
+  LAYER 5 — FINE PARTICULATE FILTER
+    Material : Cordierite or SiC honeycomb (similar to DPF)
+    Function : Captures PM2.5 and ultrafine particles
+    Regeneration: Passive (via exhaust heat) or active (resistive element)
+
+  LAYER 6 — THERMAL MANAGEMENT JACKET
+    Material : Stainless steel outer shell with ceramic fibre insulation
+    Function : Maintains membrane operating temperature window
+               Prevents outer surface burns (surface <60°C target)
+
+
+3.2 Cross-Section Schematic (text representation)
+---------------------------------------------------
+
+  [EXHAUST GAS IN] →
+  ┌─────────────────────────────────────────────────┐
+  │  L1: Ceramic Pre-filter (PM/soot)               │
+  │  L2: Oxidation Catalyst (CO, HC removal)        │
+  │  L3: MIEC Perovskite NOx Membrane               │
+  │  L4: Molten Carbonate CO2 Membrane              │
+  │  L5: SiC Fine Particulate Filter                │
+  │  L6: Thermal Jacket + Insulation                │
+  └─────────────────────────────────────────────────┘
+  → [CLEANED GAS OUT — primarily N2, H2O, residual CO2]
+
+  Permeate Side (captured gases routed to):
+    NOx → Catalytic reduction chamber → N2 vented safely
+    CO2 → Compressed storage canister (exchangeable)
+         OR mineralisation cartridge (CO2 + Ca(OH)2 → CaCO3)
+
+
+================================================================================
+4. THERMODYNAMIC ANALYSIS
+==========================
+
+4.1 Energy Balance
+-------------------
+  Exhaust enthalpy flux (Q_exhaust):
+    Q = ṁ × Cp × ΔT
+    ṁ = 0.03 kg/s (mid-size petrol, cruise)
+    Cp ≈ 1.05 kJ/kg·K (exhaust gas mixture)
+    ΔT = 400 – 25 = 375 K
+    Q ≈ 0.03 × 1.05 × 375 ≈ 11.8 kW available thermal energy
+
+  Cold start gap: below 300°C, membranes inactive — resistive pre-heater
+                  (200W electric element) bridges cold-start gap (~90 sec)
+
+4.2 Back-Pressure Analysis
+----------------------------
+  ΔP across membrane stack (estimated):
+    L1 (ceramic mesh)      : 0.5 – 1.0 kPa
+    L2 (catalyst washcoat) : 1.0 – 2.0 kPa
+    L3 (MIEC membrane)     : 1.5 – 3.0 kPa
+    L4 (molten carbonate)  : 2.0 – 4.0 kPa
+    L5 (SiC filter)        : 0.5 – 1.5 kPa
+    TOTAL estimated         : 5.5 – 11.5 kPa
+
+  Mitigation: Annular membrane design to increase face area and reduce ΔP < 8 kPa.
+
+4.3 Fluid Dynamics — Airflow Modelling
+----------------------------------------
+  Continuity : ∇·(ρV) = 0
+  Momentum   : ρ(V·∇)V = -∇P + μ∇²V
+  Energy     : ρCp(V·∇T) = k∇²T + Q_reaction
+
+  Turbulence model: k-ε or k-ω SST (OpenFOAM / ANSYS Fluent)
+  Target membrane face velocity: 0.1 – 0.5 m/s
+  Required membrane face area: ~0.10 m² (annular/radial arrangement)
+
+
+================================================================================
+5. MECHANICAL & FITMENT DESIGN
+================================
+
+  Housing  : Grade 316L stainless steel
+  Insulation: Aerogel blanket + ceramic fibre wrap
+  OD       : 150 – 250 mm | Length: 300 – 500 mm | Weight: <4 kg
+  Fitment  : V-band clamp (50–120mm ID universal adapters)
+  Sealing  : High-temp graphite gaskets
+
+  CO2 Canister: 2L replaceable pressure vessel (max 5 bar), ~500g CO2
+  Exchange interval: ~300–500 km | Option B: Ca(OH)2 mineralisation cartridge
+
+  Sensors  : Type K thermocouple, differential pressure, NDIR CO2, NOx
+  Control  : STM32 MCU, BLE smartphone interface
+  Power    : 12V vehicle feed, <5A nominal
+
+
+================================================================================
+6. CAPTURE EFFICIENCY TARGETS
+===============================
+
+  CO2       : 40 – 70%   (molten carbonate membrane)
+  NOx       : 80 – 95%   (MIEC perovskite + SCR)
+  CO        : >95%        (oxidation catalyst)
+  HC        : >90%        (oxidation catalyst)
+  PM2.5/10  : >99%        (ceramic pre-filter + SiC DPF)
+  SOx       : 60 – 80%   (alkaline sorbent, optional)
+
+
+================================================================================
+7. REGULATORY CONTEXT
+======================
+
+  Euro 6d | UK Cambridge LEZ | CARB | UN ECE R83/R49 | BS EN ISO 16890
+  IP67 electronics | ISO 16750-3 vibration
+
+
+================================================================================
+8. DEVELOPMENT ROADMAP
+========================
+
+  Phase 1 (M1–3)  : CFD simulation, materials selection, literature review
+  Phase 2 (M4–8)  : Bench testing on synthetic exhaust gas rig
+  Phase 3 (M9–14) : Prototype build, vehicle fitment, road test
+  Phase 4 (M15–24): Optimisation, independent lab testing, VCA type approval
+
+
+================================================================================
+9. OPEN TECHNICAL CHALLENGES
+==============================
+
+  1. Molten carbonate membrane thermal cycling durability
+  2. Cold-start performance gap (<300°C)
+  3. Back-pressure management via annular geometry
+  4. CO2 canister exchange logistics
+  5. Membrane SOx poisoning — guard bed required
+  6. Perovskite stability in high-H2O exhaust
+  7. Unit cost target: <£200 at volume
+
+
+================================================================================
+10. IMMEDIATE NEXT STEPS
+=========================
+
+  A. Commission OpenFOAM CFD model of annular membrane collar
+  B. Define membrane material procurement list
+  C. Identify Cambridge University research partners
+     (Dept. Chemical Engineering & Biotechnology; Dept. Engineering)
+  D. Draft provisional IP filing — membrane stack configuration
+  E. Prepare budget and funding model (Innovate UK / UKRI Net Zero)
+
+================================================================================
+END OF DOCUMENT — CAMBRIDGE-1 v0.1
+================================================================================

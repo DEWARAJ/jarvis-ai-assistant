@@ -1,0 +1,9 @@
+{
+  "name": "jarvis-ai-os",
+  "version": "1.0.0",
+  "description": "JARVIS — a fully capable, British-accented AI companion and operating system layer. Voice-inspired, deeply personal, and always improving.",
+  "author": {
+    "name": "dew"
+  },
+  "keywords": ["jarvis", "ai-os", "assistant", "automation", "system-control", "companion"]
+}

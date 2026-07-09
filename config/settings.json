@@ -1,0 +1,134 @@
+{
+  "app_name": "JARVIS OS",
+  "version": "0.9.3-multilingual-voice",
+  "owner": "Master",
+  "boot_banner": "JARVIS OS ONLINE",
+  "voice": {
+    "output_enabled": true,
+    "input_enabled": false,
+    "engine": "auto",
+    "wake_word": "jarvis",
+    "language": "auto",
+    "stt_langs": [
+      "en-IN",
+      "hi-IN",
+      "te-IN"
+    ],
+    "voices": {
+      "en": "en-GB-RyanNeural",
+      "te": "te-IN-MohanNeural",
+      "hi": "hi-IN-MadhurNeural"
+    },
+    "_notes": "Neural voice via edge-tts (English/Telugu/Hindi), auto language-detected. language: auto|en|te|hi. Install with 'install the autonomous toolkit'. stt_langs are tried in order for speech recognition."
+  },
+  "llm": {
+    "enabled": true,
+    "active": "claude",
+    "timeout": 90,
+    "temperature": 0.6,
+    "max_tokens": 2000,
+    "profiles": {
+      "ollama": {
+        "provider": "ollama",
+        "model": "llama3.1:8b",
+        "base_url": "http://localhost:11434",
+        "api_key_env": ""
+      },
+      "perplexity": {
+        "provider": "openai",
+        "model": "sonar-pro",
+        "base_url": "https://api.perplexity.ai",
+        "api_key_env": "PERPLEXITY_API_KEY"
+      },
+      "claude": {
+        "provider": "anthropic",
+        "model": "claude-sonnet-4-6",
+        "base_url": "https://api.anthropic.com",
+        "api_key_env": "ANTHROPIC_API_KEY"
+      },
+      "nvidia": {
+        "provider": "openai",
+        "model": "meta/llama-3.3-70b-instruct",
+        "base_url": "https://integrate.api.nvidia.com/v1",
+        "api_key_env": "NVIDIA_API_KEY"
+      },
+      "gemini": {
+        "provider": "openai",
+        "model": "gemini-2.5-flash",
+        "base_url": "https://generativelanguage.googleapis.com/v1beta/openai",
+        "api_key_env": "GEMINI_API_KEY",
+        "_notes": "Google Gemini via its OpenAI-compatible endpoint. Change 'model' to any you have access to, e.g. gemini-3.5-flash, gemini-2.5-pro, gemini-2.5-flash-lite. Key from https://aistudio.google.com/apikey -> paste into .env as GEMINI_API_KEY."
+      }
+    },
+    "_notes": "Default brain is 'claude' (fast cloud). Switch live with 'use claude' / 'use perplexity' / 'use nvidia' / 'use ollama'. Cloud keys read from .env, never stored here.",
+    "agentic": true,
+    "smart_route": true,
+    "_smart_route_notes": "When true, JARVIS auto-picks the best brain PER REQUEST: research/live-web -> perplexity, hard reasoning/code -> claude, quick/cheap -> gemini/nvidia, private/offline -> ollama. Falls through the usual fallback chain if the picked brain is down. 'use <brain>' still pins a brain manually.",
+    "fallback": [
+      "claude",
+      "gemini",
+      "nvidia",
+      "ollama"
+    ],
+    "fallback_cooldown": 60,
+    "cache": true,
+    "cache_ttl": 300,
+    "local_only": false
+  },
+  "paths": {
+    "memory_dir": "memory",
+    "logs_dir": "logs",
+    "notes_dir": "notes",
+    "business_knowledge_dir": "business_knowledge"
+  },
+  "safety": {
+    "block_destructive_without_backup": true,
+    "require_confirmation_for_risky": true,
+    "external_apis_enabled": false
+  },
+  "owner_mode": true,
+  "browser": "chrome",
+  "chrome_user_data_dir": "",
+  "companion": {
+    "commute_to": "",
+    "commute_from": "",
+    "_notes": "Set commute_to (e.g. 'Office, 123 Main St') so the 1pm midday check can open live Google Maps traffic for your route. Leave blank to get weather only. commute_from is optional; blank = current location."
+  },
+  "vision": {
+    "enabled": true,
+    "_notes": "Screen vision (Claude eyes). 'see/look at my screen', 'verify <X> on screen'. Needs ANTHROPIC_API_KEY + pillow.",
+    "two_pass": true
+  },
+  "proactive": {
+    "enabled": true,
+    "interval_seconds": 120,
+    "_notes": "Background monitoring. JARVIS checks your watches every interval and surfaces alerts. Read-only."
+  },
+  "autonomy": {
+    "independent_within_scope": true,
+    "ask_for_out_of_scope": true,
+    "never_override_master": true,
+    "_notes": "JARVIS may think/act a little independently within the master's standing instructions and Tier-1 actions; it asks permission for anything novel, out-of-scope, or risky, and never overrides the master."
+  },
+  "proactive_advice": {
+    "autostart": true,
+    "interval_seconds": 90,
+    "min_gap_seconds": 300,
+    "_notes": "Iron-Man-style unprompted advice. JARVIS watches your current browser tab and volunteers ONE useful suggestion at most every min_gap_seconds, only when the page changed and it has something genuinely worth saying (else stays silent). Needs the controlled browser (start_my_chrome.bat) to see your tab. Say 'proactive off' to silence. Surfaces via the HUD/voice alert buffer."
+  },
+  "iron_man": {
+    "autostart": true,
+    "interval_seconds": 60,
+    "max_missions_per_day": 12,
+    "mission_budget": 12,
+    "improve_every_missions": 4,
+    "_notes": "Iron Man Mode = continuous self-driving autonomy. Say 'iron man mode on' to engage. It works queued goals ('add goal <x>') one at a time through the safe MissionControl loop, pausing for 'confirm' on anything irreversible. interval_seconds = how often it checks for work; max_missions_per_day + mission_budget bound runaway cost; improve_every_missions = how often it self-reviews + proposes next goals when idle."
+  },
+  "remote": {
+    "enabled": false,
+    "host": "0.0.0.0",
+    "port": 8765,
+    "rate_limit": 30,
+    "_notes": "Phase 4 LAN-only remote control (e.g. your phone). DISABLED by default. To use: set JARVIS_REMOTE_TOKEN in .env, set enabled=true, then POST {\"text\":\"...\"} to http://<pc-lan-ip>:8765/command with header 'Authorization: Bearer <token>'. Refuses to start without the token. Keep it behind your router — never port-forward to the internet. Class B actions (delete, shutdown, install, trades) still require a separate 'confirm' command even remotely."
+  }
+}

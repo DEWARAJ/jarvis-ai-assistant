@@ -1,0 +1,29 @@
+# JARVIS OS dependencies.
+# Core runs on the pure standard library. Install the extras below to unlock full power.
+
+# --- CRITICAL: Claude brain + env loading (Hermes/agents fail without these) ---
+anthropic>=0.112.0     # Claude API — Hermes, agents, ReAct loops
+python-dotenv>=1.0.0   # loads ANTHROPIC_API_KEY etc. from .env
+
+# --- Live web data ---
+requests>=2.31.0
+firecrawl-py>=0.0.16
+tavily-python>=0.3.0
+
+# --- Recommended: full local control ---
+pyautogui>=0.9.54      # volume, typing, hotkeys, screenshots-fallback
+psutil>=5.9            # close/kill apps + verify processes
+pillow>=10.0           # screenshots AND screen vision (what's on my screen)
+
+# --- Controlled browser (real YouTube play, click results, same-tab navigation) ---
+# After installing, also run the browser download step:
+#   python -m playwright install chromium
+playwright>=1.44
+
+# Document reading (PDF / Word / Excel)
+pypdf>=4.0
+python-docx>=1.1
+openpyxl>=3.1
+
+# Tests (dev)
+pytest>=7.0

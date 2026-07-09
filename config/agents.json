@@ -1,0 +1,21 @@
+{
+  "executive": {"module": "agents.executive_agent", "class": "ExecutiveAgent", "scope": "strategy & prioritization", "risk": "low"},
+  "ultron": {"module": "agents.ultron_agent", "class": "UltronAgent", "scope": "advanced research, strategy & advice (advises only, never executes)", "risk": "low"},
+  "friday": {"module": "agents.council_agents", "class": "FridayAgent", "scope": "live research & web intelligence; cites sources", "risk": "low"},
+  "tron": {"module": "agents.council_agents", "class": "TronAgent", "scope": "builder-debugger; implementation & verification", "risk": "low"},
+  "ira": {"module": "agents.council_agents", "class": "IraAgent", "scope": "security, safety & quality control (veto)", "risk": "low"},
+  "mythos": {"module": "agents.council_agents", "class": "MythosAgent", "scope": "creativity, strategy & uniqueness", "risk": "low"},
+  "business_strategy": {"module": "agents.business_strategy_agent", "class": "BusinessStrategyAgent", "scope": "growth, pricing, positioning", "risk": "low"},
+  "ecommerce": {"module": "agents.ecommerce_agent", "class": "EcommerceAgent", "scope": "store & conversion", "risk": "low"},
+  "customer_support": {"module": "agents.customer_support_agent", "class": "CustomerSupportAgent", "scope": "support drafts (never auto-send)", "risk": "medium"},
+  "marketing": {"module": "agents.marketing_agent", "class": "MarketingAgent", "scope": "ads, hooks, creatives", "risk": "low"},
+  "content": {"module": "agents.content_agent", "class": "ContentAgent", "scope": "copy & content", "risk": "low"},
+  "research": {"module": "agents.research_agent", "class": "ResearchAgent", "scope": "research summaries", "risk": "low"},
+  "automation": {"module": "agents.automation_agent", "class": "AutomationAgent", "scope": "workflow plans (never auto-run)", "risk": "high"},
+  "coding": {"module": "agents.coding_agent", "class": "CodingAgent", "scope": "code in project folder", "risk": "medium"},
+  "testing": {"module": "agents.testing_agent", "class": "TestingAgent", "scope": "validation & tests", "risk": "low"},
+  "security": {"module": "agents.security_agent", "class": "SecurityAgent", "scope": "safety & privacy review", "risk": "low"},
+  "memory": {"module": "agents.memory_agent", "class": "MemoryAgent", "scope": "safe local memory", "risk": "low"},
+  "personal_companion": {"module": "agents.personal_companion_agent", "class": "PersonalCompanionAgent", "scope": "daily planning & focus", "risk": "low"},
+  "trading_research": {"module": "agents.trading_research_agent", "class": "TradingResearchAgent", "scope": "research only, no trades", "risk": "high"}
+}
