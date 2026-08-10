@@ -3,7 +3,7 @@
 A serious, modular personal AI operating system and business command center.
 Not a chatbot — a command brain with sub-agents, memory, safety gates, and permission control.
 
-## Status: Phase 1 (Terminal Core)
+## Status:  (Terminal Core)
 
 Runnable today. No external APIs connected. Pure Python standard library.
 
